@@ -26,10 +26,10 @@ function growCircle(circle) {
         circle.style.width = radius * 2 + "px";
         circle.style.height = radius * 2 + "px";
         if (radius >= 30) {
-            clearInterval(grow);
-            shrinkCircle(circle);
-        } // works on my computer :)
-    }, 10); // try to run it again
+            clearInterval(grow); // WHAT DID YOU DO
+            shrinkCircle(circle); // nevermind it was my falt mb
+        }
+    }, 10);
 }
 
 function shrinkCircle(circle) {
@@ -51,9 +51,22 @@ function bamboozle() {
     console.log("bamboozle");
 }
 
+function Lerp(a, b, t) {
+    return a * t + b * (1-t);
+}
+
 setBackground();
 document.addEventListener("mousemove", function(event) {
+    let detail = 10;
+    let oldX = mouseX;
+    let oldY = mouseY;
+    let newX = event.clientX;
+    let newY = event.clientY;
+    for (let i = 0; i < detail; i++) {
+        mouseX = Lerp(oldX, newX, (i + 1) / detail);
+        mouseY = Lerp(oldY, newY, (i + 1) / detail);
+        bamboozle();
+    }
     mouseX = event.clientX;
     mouseY = event.clientY;
-    bamboozle();
 });
