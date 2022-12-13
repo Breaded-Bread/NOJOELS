@@ -25,15 +25,15 @@ function growCircle(circle) {
         radius++;
         circle.style.width = radius * 2 + "px";
         circle.style.height = radius * 2 + "px";
-        if (radius >= 100) {
+        if (radius >= 30) {
             clearInterval(grow);
             shrinkCircle(circle);
-        }
-    }, 10);
+        } // works on my computer :)
+    }, 10); // try to run it again
 }
 
 function shrinkCircle(circle) {
-    var radius = 100;
+    var radius = 30;
     var shrink = setInterval(function() {
         radius--;
         circle.style.width = radius * 2 + "px";
@@ -51,23 +51,9 @@ function bamboozle() {
     console.log("bamboozle");
 }
 
-function doSomething() {
-    setBackground();
-    setInterval(bamboozle, 10);
-}
-
-doSomething();
-// nothing
-//why are you in my repl tho
-// don't worry about it man
-// im not joel
-// i follow all the rules
-
+setBackground();
 document.addEventListener("mousemove", function(event) {
     mouseX = event.clientX;
     mouseY = event.clientY;
+    bamboozle();
 });
-// lol check out the website
-// move you mouse over it
-//not anymore they just changed. No joels or charles'
-//can't my discrict is cringe. I'd have to push to GitHub and wait a bit then do it.
